@@ -1,0 +1,38 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --watchAll"
+  },
+  "dependencies": {
+    "babel-jest": "^24.8.0",
+    "cheerio": "^1.0.0-rc.3",
+    "cherio": "^1.0.0-rc.2",
+    "express": "^4.17.1",
+    "jest": "^24.8.0",
+    "mongodb": "^3.2.7",
+    "node-fetch": "^2.6.0"
+  },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost:1234/",
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.3"
+  }
+}
