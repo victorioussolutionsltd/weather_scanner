@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import {useSelector} from 'react-redux';
 
 const styles = theme => ({
   root: {
@@ -38,31 +38,38 @@ const rows = [
 function WeatherInformation(props) {
   const { classes } = props;
 
+
+  const temperature = useSelector( state => state.temperature );
+  const pressure = useSelector( state => state.pressure);
+
   return (
 
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <TableCell align="right">Temperature in the room</TableCell>
-            <TableCell align="right">Temperature outside</TableCell>
-            <TableCell align="right">Date</TableCell>
+            <TableCell align="right">Temperature in the room (°C)</TableCell>
+            <TableCell align="right">Temperature outside (°C)</TableCell>
+            <TableCell align="right">Pressure (hPa)</TableCell>
             <TableCell align="right">Time</TableCell>
+            <TableCell align="right">Date</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map(row => (
             <TableRow key={row.id}>
-              <TableCell align="right">{row.room}</TableCell>
-              <TableCell align="right">{row.outside}</TableCell>
-              <TableCell align="right">{row.date}</TableCell>
-              <TableCell align="right">{row.time}</TableCell>
+              <TableCell align="right">{temperature.inside}</TableCell>
+              <TableCell align="right">{temperature.outside}</TableCell>
+              <TableCell align="right">{pressure}</TableCell>
+              <TableCell align="right">{new Date().toLocaleTimeString()}</TableCell>
+              <TableCell align="right">{new Date().toDateString()}</TableCell>
             </TableRow>
-          ))}
+          ))}         
         </TableBody>
       </Table>
+      
     </Paper>
- 
+
     
   );
 }

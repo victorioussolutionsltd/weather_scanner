@@ -19,6 +19,9 @@ const styles = theme => ({
 
 function SimpleExpansionPanel(props) {
   const { classes } = props;
+
+  const information = "The website is under development, so will likely change shortly";
+
   return (
     <div className={classes.root}>
       <ExpansionPanel>
@@ -27,7 +30,7 @@ function SimpleExpansionPanel(props) {
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography>
-            The website is under development and currently the data is hardcoded.
+            {information}
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>

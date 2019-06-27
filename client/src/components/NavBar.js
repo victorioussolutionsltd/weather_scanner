@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 
 const styles = {
@@ -22,6 +21,9 @@ const styles = {
 
 function NavBar(props) {
   const { classes } = props;
+
+  const information = "Weather information presenter";
+
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -29,9 +31,8 @@ function NavBar(props) {
           <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
           </IconButton>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            Weather presenter from a house in Wroclaw
+            {information}
           </Typography>
-          <Button color="inherit">Refresh</Button>
         </Toolbar>
       </AppBar>
     </div>
